@@ -2,7 +2,7 @@
 
 
 ##User stories
-    ```
+    
     1.As a user,
       so I can get motivation,
       I want to be able to add a goal(basic)
@@ -36,6 +36,9 @@
     11.As a follower of a goal,
        so I can offer advice and support to the owner of the goal,
        I want to be able to comment on a goal(social, depend on the basics)
-       ```
- ## Basic Doodle of project idea
+       
+## Basic Doodle of project idea
  ![doodle](https://www.dropbox.com/s/vsdp1cfb1st7rjo/Whiteboard%5B3%5D.png?raw=1)
+
+##WOOP (Wish Outcome Obstacle Plan) integration 
+![woop](https://www.dropbox.com/s/hrg26cb3tad7lhm/Untitled%20Diagram.png?raw=1)
