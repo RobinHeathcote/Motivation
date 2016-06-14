@@ -45,3 +45,8 @@
 
 ##Mockups
 ![mockups](https://www.dropbox.com/s/7ivzndl8ppkkk0n/Motivation.png?raw=1)
+
+##Technology
+
+###User authentication
+devise_token_auth: https://github.com/lynndylanhurley/devise_token_auth#usage-tldr
