@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  namespace :api, defaults: {format: :json}, constraints: {
-    subdomain: 'api' }, path: '/' do
+  namespace :api, defaults: {format: :json}, path: '/' do
 
-    resources :users, :only => [:show]  
+    resources :users, :only => [:show]
   end
 
 
