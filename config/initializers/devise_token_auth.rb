@@ -34,4 +34,7 @@ DeviseTokenAuth.setup do |config|
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
   # enable_standard_devise_support = false
+  # Devise.setup do |config|
+  #   config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  # end
 end
