@@ -21,7 +21,13 @@ class Api::UsersController < ApplicationController
       render json: user, status: 200, location: [:api, user]
     else
       render json: { errors: user.errors }, status: 422
-    end  
+    end
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    head 204
   end
 
   private
