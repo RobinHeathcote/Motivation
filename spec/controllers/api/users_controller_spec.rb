@@ -2,8 +2,10 @@ require 'rails_helper'
 
 
 RSpec.describe Api::UsersController, type: :controller do
-  before(:each) { request.headers['Accept'] = "application/vnd.motivation, #{Mime::JSON}"  }
-  before(:each) { request.headers['Content-Type'] = Mime::JSON.to_s }
+  before(:each) do
+    request.headers['Accept'] = "application/vnd.motivation, #{Mime::JSON}"  
+    request.headers['Content-Type'] = Mime::JSON.to_s
+  end
 
   describe "Get #show" do
     before(:each) do
