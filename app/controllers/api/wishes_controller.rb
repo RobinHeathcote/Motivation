@@ -5,4 +5,8 @@ class Api::WishesController < ApplicationController
     render json: Wish.find(params[:id])
   end
 
+  def index
+    render json: Wish.all
+  end
+
 end

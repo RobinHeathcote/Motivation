@@ -9,9 +9,22 @@ RSpec.describe Api::WishesController, type: :controller do
     end
 
     it 'returns wish as a hash' do
-      product_response = JSON.parse(response.body)
-      p product_response
-      expect(product_response["wish_text"]).to eq @wish.wish_text
+      wish_response = JSON.parse(response.body)
+      expect(wish_response["wish_text"]).to eq @wish.wish_text
+    end
+
+    it {should respond_with 200}
+  end
+
+  describe "GET #index" do
+    before(:each) do
+      4.times {FactoryGirl.create :wish}
+      get :index
+    end
+
+    it "returns 4 records from the database" do
+      wishes_response = JSON.parse(response.body)
+      expect(wishes_response.length).to eq 4
     end
 
     it {should respond_with 200}
