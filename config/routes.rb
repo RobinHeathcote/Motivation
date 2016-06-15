@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  namespace :api, defaults: {format: :json}, constraints: {
-    subdomain: 'api' }, path: '/' do
+  namespace :api, defaults: {format: 'json' }, path: '/' do
+
+    resources :wishes, :only => [:show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
