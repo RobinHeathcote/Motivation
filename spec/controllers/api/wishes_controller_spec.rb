@@ -8,6 +8,13 @@ RSpec.describe Api::WishesController, type: :controller do
       get :show, id: @wish.id
     end
 
+    # before(:each) do
+    #   user = FactoryGirl.create :user
+    #   @wish_attributes = FactoryGirl.attributes_for :wish
+    #   api_authorization_header user.auth_token
+    #   post :create, {user_id: user.id, wish: @wish_attributes}
+    # end
+
     it 'returns wish as a hash' do
       wish_response = JSON.parse(response.body)
       expect(wish_response["wish_text"]).to eq @wish.wish_text

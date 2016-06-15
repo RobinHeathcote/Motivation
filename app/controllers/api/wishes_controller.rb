@@ -4,10 +4,12 @@ class Api::WishesController < ApplicationController
 
   def show
     render json: Wish.find(params[:id])
+    #render json: current_user.wishes.find(params[:id])
   end
 
   def index
     render json: Wish.all
+    # render json: current_user.wishes
   end
   #needs to be updated to show only the wishes of the current user!
 
