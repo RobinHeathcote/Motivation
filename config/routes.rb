@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
   namespace :api, defaults: {format: 'json' }, path: '/' do
-
     resources :wishes, :only => [:show, :index]
   end
   # The priority is based upon order of creation: first created -> highest priority.
