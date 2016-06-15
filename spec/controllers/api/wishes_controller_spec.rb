@@ -63,5 +63,41 @@ RSpec.describe Api::WishesController, type: :controller do
       it {should respond_with 422 }
     end
 
+
   end
+
+  describe "PUT/PATCH #update" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @wish = FactoryGirl.create :wish, user: @user
+      api_authorization_header @user.auth_token
+    end
+
+    context "when the updating is successful" do
+      before(:each) do
+        patch :update, { user_id: @user.id, id: @wish.id, wish: { wish_text: 'hello' } }
+      end
+
+      it 'return the json object of the updated wish' do
+        wish_response = JSON.parse(response.body)
+        expect(wish_response["wish_text"]).to eq 'hello'
+      end
+
+      it { should respond_with 200 }
+    end
+
+    # context "when update is unsuccessful" do
+
+    # end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @wish = FactoryGirl.create :wish, user: @user
+      api_authorization_header @user.auth_token
+      delete :destroy, { user_id: @user.id, id: @wish.id }
+    end
+
+    it { should respond_with 204 }
 end

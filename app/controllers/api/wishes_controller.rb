@@ -1,5 +1,5 @@
 class Api::WishesController < ApplicationController
-  before_action :authentication_with_token!, only: [:create]
+  before_action :authentication_with_token!, only: [:create, :update, :destroy]
   respond_to :json
 
   def show
@@ -9,6 +9,7 @@ class Api::WishesController < ApplicationController
   def index
     render json: Wish.all
   end
+  #needs to be updated to show only the wishes of the current user!
 
   def create
     wish = current_user.wishes.build(wish_params)
@@ -21,9 +22,26 @@ class Api::WishesController < ApplicationController
     end
   end
 
+  def update
+    wish = current_user.wishes.find(params[:id])
+    if wish.update(wish_params)
+      render json: wish, status: 200, location: [:api, wish]
+    else
+      render json: { errors: wish.errors }, status: 422
+    end
+  end
+
+  def destroy
+    wish = current_user.wishes.find(params[:id])
+    wish.destroy
+    head 204
+  end
+
+
+
   private
 
   def wish_params
-    params.require(:wish).permit(:wish_text, outcome_text)
+    params.require(:wish).permit(:wish_text, :outcome_text)
   end
 end
