@@ -1,26 +1,22 @@
 class Api::WishesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!
+
   respond_to :json
 
   def show
-    render json: Wish.find(params[:id])
-    #render json: current_user.wishes.find(params[:id])
+    render json: current_user.wishes.find(params[:id])
   end
 
   def index
-    render json: Wish.all
-    # render json: current_user.wishes
+    render json: current_user.wishes
   end
-  #needs to be updated to show only the wishes of the current user!
 
   def create
     wish = current_user.wishes.build(wish_params)
     if wish.save
       render json: wish, status: 201, location: [:api, wish]
-      #return the newly created wish object
     else
       render json: {errors: wish.errors }, status: 422
-      #return an error object for the front-end to use
     end
   end
 
@@ -38,8 +34,6 @@ class Api::WishesController < ApplicationController
     wish.destroy
     head 204
   end
-
-
 
   private
 

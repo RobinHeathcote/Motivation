@@ -3,36 +3,40 @@ require 'rails_helper'
 RSpec.describe Api::WishesController, type: :controller do
 
   describe "GET show" do
-    before(:each) do
-      @wish = FactoryGirl.create :wish
-      get :show, id: @wish.id
+    context "user could see own wish" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        auth_request(@user)
+        get :show, id: @wish.id
+      end
+
+      it 'returns wish as a hash' do
+        expect(json_response[:wish_text]).to eq @wish.wish_text
+      end
+
+      it {should respond_with 200}
     end
-
-    # before(:each) do
-    #   user = FactoryGirl.create :user
-    #   @wish_attributes = FactoryGirl.attributes_for :wish
-    #   api_authorization_header user.auth_token
-    #   post :create, {user_id: user.id, wish: @wish_attributes}
-    # end
-
-    it 'returns wish as a hash' do
-      expect(json_response[:wish_text]).to eq @wish.wish_text
-    end
-
-    it {should respond_with 200}
   end
 
   describe "GET #index" do
-    before(:each) do
-      4.times {FactoryGirl.create :wish}
-      get :index
+
+    context "user could see all his own wishes" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        4.times {FactoryGirl.create :wish, user: @user}
+        auth_request(@user)
+        get :index
+      end
+
+
+      it "returns 4 records from the database" do
+        expect(json_response.length).to eq 4
+      end
+
+      it {should respond_with 200}
     end
 
-    it "returns 4 records from the database" do
-      expect(json_response.length).to eq 4
-    end
-
-    it {should respond_with 200}
   end
 
   describe "POST #create" do
@@ -70,8 +74,6 @@ RSpec.describe Api::WishesController, type: :controller do
 
       it {should respond_with 422 }
     end
-
-
   end
 
   describe "PUT/PATCH #update" do
@@ -87,8 +89,8 @@ RSpec.describe Api::WishesController, type: :controller do
       end
 
       it 'return the json object of the updated wish' do
-        wish_response = JSON.parse(response.body)
-        expect(wish_response["wish_text"]).to eq 'hello'
+        wish_response = json_response
+        expect(wish_response[:wish_text]).to eq 'hello'
       end
 
       it { should respond_with 200 }
