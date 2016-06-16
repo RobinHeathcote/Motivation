@@ -1,23 +1,15 @@
 class Api::ObstaclesController < ApplicationController
   before_action :authenticate_api_user!
+  before_action :user_can_access_wish?, only: [:index, :show, :update, :create]
   respond_to :json
 
   def show
-    obstacle = Obstacle.find(params[:id])
-    if user_own_wish?(obstacle.wish)
-      render json: obstacle
-    else
-      head 401
-    end
+    render json: Obstacle.find(params[:id])
   end
 
   def index
     wish = Wish.find(params[:wish_id])
-    if user_own_wish?(wish)
-      render json: wish.obstacles
-    else
-      head 401
-    end
+    render json: wish.obstacles
   end
 
   def create
@@ -32,9 +24,7 @@ class Api::ObstaclesController < ApplicationController
 
   def update
     obstacle = Obstacle.find(params[:id])
-    if !user_own_wish?(obstacle.wish)
-      head 401
-    elsif obstacle.update(obstacle_params)
+    if obstacle.update(obstacle_params)
       render json: obstacle, status: 200
     else
       render json: { errors: obstacle.errors }, status: 422
@@ -47,8 +37,17 @@ class Api::ObstaclesController < ApplicationController
     params.require(:obstacle).permit(:obstacle_text, :plan_text)
   end
 
+  def user_can_access_wish?
+    wish = Wish.find(params[:wish_id])
+    render nothing: true, status: :unauthorized unless user_own_wish?(wish)
+  end
+
   def user_own_wish?(wish)
     current_api_user.wishes.include?(wish)
   end
 
+  # def user_own_obstacle?
+  #   obstacle = Obstacle.find(params[:id])
+  #   render nothing: true, status: :unauthorized unless user_own_wish?(obstacle.wish)
+  # end
 end
