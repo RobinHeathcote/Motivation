@@ -52,8 +52,4 @@ class Api::ObstaclesController < ApplicationController
     current_api_user.wishes.include?(wish)
   end
 
-  # def user_own_obstacle?
-  #   obstacle = Obstacle.find(params[:id])
-  #   render nothing: true, status: :unauthorized unless user_own_wish?(obstacle.wish)
-  # end
 end

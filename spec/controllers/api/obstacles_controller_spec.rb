@@ -184,6 +184,4 @@ RSpec.describe Api::ObstaclesController, type: :controller do
       end
     end
   end
-
-
 end
