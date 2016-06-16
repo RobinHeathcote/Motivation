@@ -1,6 +1,5 @@
 class Api::ObstaclesController < ApplicationController
   before_action :authenticate_api_user!
-
   respond_to :json
 
   def show
@@ -28,6 +27,17 @@ class Api::ObstaclesController < ApplicationController
       render json: obstacle, status: 201
     else
       render json: {errors: obstacle.errors }, status: 422
+    end
+  end
+
+  def update
+    obstacle = Obstacle.find(params[:id])
+    if !user_own_wish?(obstacle.wish)
+      head 401
+    elsif obstacle.update(obstacle_params)
+      render json: obstacle, status: 200
+    else
+      render json: { errors: obstacle.errors }, status: 422
     end
   end
 

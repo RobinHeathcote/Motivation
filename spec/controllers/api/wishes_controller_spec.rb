@@ -121,4 +121,6 @@ RSpec.describe Api::WishesController, type: :controller do
 
     it { should respond_with 204 }
   end
+
+
 end

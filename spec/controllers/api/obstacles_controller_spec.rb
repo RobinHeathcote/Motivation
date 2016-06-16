@@ -111,4 +111,42 @@ RSpec.describe Api::ObstaclesController, type: :controller do
     end
   end
 
+  describe "PUT/PATCH #update" do
+
+    context "when updating is successful" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        @obstacle = FactoryGirl.create :obstacle, wish: @wish
+        auth_request(@user)
+        patch :update, { wish_id: @wish.id, id: @obstacle.id, obstacle: {plan_text: 'hello' } }
+      end
+
+      it 'returns the json object of the updated obstacle' do
+        obstacle_response = json_response
+        expect(obstacle_response[:plan_text]).to eq 'hello'
+      end
+
+      it { should respond_with 200 }
+
+    end
+
+    context "when trying to update other people's obstacle" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @user_2 = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        @obstacle = FactoryGirl.create :obstacle, wish: @wish
+        auth_request(@user_2)
+        patch :update, { wish_id: @wish.id, id: @obstacle.id, obstacle: {plan_text: 'hello' } }
+      end
+
+      it "should not change the text of the obstacle" do
+        expect(@obstacle.plan_text).not_to eq 'hello'
+      end
+
+      it {should respond_with 401}
+    end
+  end
+
 end
