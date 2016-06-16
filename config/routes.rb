@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     mount_devise_token_auth_for "User", at: 'auth'
-    resources :wishes, :only => [:show, :index, :create, :update, :destroy]
-
+    resources :wishes do
+      resources :obstacles
+    end
   end
   #when the user resource is created, the :create action of the wish class needs to be nested inside the user resource
 
