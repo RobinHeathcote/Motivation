@@ -21,6 +21,16 @@ class Api::ObstaclesController < ApplicationController
     end
   end
 
+  def create
+    wish = Wish.find(params[:wish_id])
+    obstacle = wish.obstacles.build(obstacle_params)
+    if obstacle.save
+      render json: obstacle, status: 201
+    else
+      render json: {errors: obstacle.errors }, status: 422
+    end
+  end
+
   private
 
   def obstacle_params

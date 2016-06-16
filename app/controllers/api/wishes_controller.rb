@@ -14,7 +14,7 @@ class Api::WishesController < ApplicationController
   def create
     wish = current_api_user.wishes.build(wish_params)
     if wish.save
-      render json: wish, status: 201, location: [:api, wish]
+      render json: wish, status: 201
     else
       render json: {errors: wish.errors }, status: 422
     end
@@ -23,7 +23,7 @@ class Api::WishesController < ApplicationController
   def update
     wish = current_api_user.wishes.find(params[:id])
     if wish.update(wish_params)
-      render json: wish, status: 200, location: [:api, wish]
+      render json: wish, status: 200
     else
       render json: { errors: wish.errors }, status: 422
     end
