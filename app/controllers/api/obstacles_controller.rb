@@ -1,6 +1,6 @@
 class Api::ObstaclesController < ApplicationController
   before_action :authenticate_api_user!
-  before_action :user_can_access_wish?, only: [:index, :show, :update, :create]
+  before_action :user_can_access_wish?
   respond_to :json
 
   def show
@@ -29,6 +29,12 @@ class Api::ObstaclesController < ApplicationController
     else
       render json: { errors: obstacle.errors }, status: 422
     end
+  end
+
+  def destroy
+    obstacle = Obstacle.find(params[:id])
+    obstacle.destroy
+    head 204
   end
 
   private

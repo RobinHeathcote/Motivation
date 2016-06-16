@@ -149,4 +149,41 @@ RSpec.describe Api::ObstaclesController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+
+    context "deleting own obstacle" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        @obstacle = FactoryGirl.create :obstacle, wish: @wish
+        auth_request(@user)
+        delete :destroy, { wish_id: @wish.id, id: @obstacle.id }
+      end
+
+      it { should respond_with 204 }
+
+      it "should have deleted the obstacle" do
+        expect(Obstacle.count).to eq 0
+      end
+    end
+
+    context 'should not be able to delete other\'s obstacle' do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @user_2 = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        @obstacle = FactoryGirl.create :obstacle, wish: @wish
+        auth_request(@user_2)
+        delete :destroy, { wish_id: @wish.id, id: @obstacle.id }
+      end
+
+      it {should respond_with 401}
+
+      it 'should not remove the obstacle' do
+        expect(Obstacle.count).to eq 1
+      end
+    end
+  end
+
+
 end
