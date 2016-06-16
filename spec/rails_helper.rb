@@ -71,4 +71,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
   config.include Request::JsonHelpers, :type => :controller
+  config.include Request::AuthHelpers, :type => :controller
+
 end

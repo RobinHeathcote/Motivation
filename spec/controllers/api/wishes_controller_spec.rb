@@ -40,13 +40,12 @@ RSpec.describe Api::WishesController, type: :controller do
       before(:each) do
         user = FactoryGirl.create :user
         @wish_attributes = FactoryGirl.attributes_for :wish
-        api_authorization_header user.auth_token
+        auth_request(user)
         post :create, {user_id: user.id, wish: @wish_attributes}
       end
 
       it "renders the json representation for the wish we just created" do
-        wish_response = json_response
-        expect(wish_response[:wish_text]).to eq @wish.wish_text
+        expect(json_response[:wish_text]).to eq @wish_attributes[:wish_text]
       end
 
       it {should respond_with 201 }
@@ -56,13 +55,17 @@ RSpec.describe Api::WishesController, type: :controller do
       before(:each) do
         user = FactoryGirl.create :user
         @invalid_wish_attributes = { wish_text: "hello"}
-        api_authorization_header user.auth_token
+        auth_request(user)
         post :create, {user_id: user.id, wish: @invalid_wish_attributes}
       end
 
+      it "does not change the total amount of wishes" do
+        expect(Wish.count).to eq 0
+      end
+
       it "renders an error json" do
-        wish_response = JSON.parse(response.body)
-        expect(wish_responseh).to have_key(:errors)
+        wish_response = json_response
+        expect(wish_response).to have_key(:errors)
       end
 
       it {should respond_with 422 }
@@ -75,7 +78,7 @@ RSpec.describe Api::WishesController, type: :controller do
     before(:each) do
       @user = FactoryGirl.create :user
       @wish = FactoryGirl.create :wish, user: @user
-      api_authorization_header @user.auth_token
+      auth_request(@user)
     end
 
     context "when the updating is successful" do
@@ -100,7 +103,7 @@ RSpec.describe Api::WishesController, type: :controller do
     before(:each) do
       @user = FactoryGirl.create :user
       @wish = FactoryGirl.create :wish, user: @user
-      api_authorization_header @user.auth_token
+      auth_request(@user)
       delete :destroy, { user_id: @user.id, id: @wish.id }
     end
 

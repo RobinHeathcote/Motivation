@@ -1,5 +1,5 @@
 class Api::WishesController < ApplicationController
-  before_action :authentication_with_token!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   respond_to :json
 
   def show
@@ -19,7 +19,7 @@ class Api::WishesController < ApplicationController
       render json: wish, status: 201, location: [:api, wish]
       #return the newly created wish object
     else
-      render json: {errors: product.errors }, status: 422
+      render json: {errors: wish.errors }, status: 422
       #return an error object for the front-end to use
     end
   end
