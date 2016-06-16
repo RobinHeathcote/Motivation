@@ -16,8 +16,7 @@ RSpec.describe Api::WishesController, type: :controller do
     # end
 
     it 'returns wish as a hash' do
-      wish_response = JSON.parse(response.body)
-      expect(wish_response["wish_text"]).to eq @wish.wish_text
+      expect(json_response[:wish_text]).to eq @wish.wish_text
     end
 
     it {should respond_with 200}
@@ -30,8 +29,7 @@ RSpec.describe Api::WishesController, type: :controller do
     end
 
     it "returns 4 records from the database" do
-      wishes_response = JSON.parse(response.body)
-      expect(wishes_response.length).to eq 4
+      expect(json_response.length).to eq 4
     end
 
     it {should respond_with 200}
@@ -47,8 +45,8 @@ RSpec.describe Api::WishesController, type: :controller do
       end
 
       it "renders the json representation for the wish we just created" do
-        wish_response = JSON.parse(response.body)
-        expect(wish_response["wish_text"]).to eq @wish.wish_text
+        wish_response = json_response
+        expect(wish_response[:wish_text]).to eq @wish.wish_text
       end
 
       it {should respond_with 201 }
