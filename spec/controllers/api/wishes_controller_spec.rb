@@ -16,7 +16,6 @@ RSpec.describe Api::WishesController, type: :controller do
       end
 
       it {should respond_with 200}
-
     end
 
   end

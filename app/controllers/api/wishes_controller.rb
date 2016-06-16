@@ -1,18 +1,18 @@
 class Api::WishesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_api_user!
 
   respond_to :json
 
   def show
-    render json: current_user.wishes.find(params[:id])
+    render json: current_api_user.wishes.find(params[:id])
   end
 
   def index
-    render json: current_user.wishes
+    render json: current_api_user.wishes
   end
 
   def create
-    wish = current_user.wishes.build(wish_params)
+    wish = current_api_user.wishes.build(wish_params)
     if wish.save
       render json: wish, status: 201, location: [:api, wish]
     else
@@ -21,7 +21,7 @@ class Api::WishesController < ApplicationController
   end
 
   def update
-    wish = current_user.wishes.find(params[:id])
+    wish = current_api_user.wishes.find(params[:id])
     if wish.update(wish_params)
       render json: wish, status: 200, location: [:api, wish]
     else
@@ -30,7 +30,7 @@ class Api::WishesController < ApplicationController
   end
 
   def destroy
-    wish = current_user.wishes.find(params[:id])
+    wish = current_api_user.wishes.find(params[:id])
     wish.destroy
     head 204
   end
