@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  namespace :api, defaults: {format: :json}, path: '/' do
-    mount_devise_token_auth_for 'User', at: 'auth'
+  namespace :api do
+    mount_devise_token_auth_for "User", at: 'auth'
+    resources :wishes, :only => [:show, :index, :create, :update, :destroy]
+
   end
+  #when the user resource is created, the :create action of the wish class needs to be nested inside the user resource
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
