@@ -18,6 +18,20 @@ RSpec.describe Api::ObstaclesController, type: :controller do
 
       it {should respond_with 200}
     end
+
+    context "user could not see an obstacle of others" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @user_2 = FactoryGirl.create :user
+        @wish = FactoryGirl.create :wish, user: @user
+        @obstacle = FactoryGirl.create :obstacle, wish: @wish
+        auth_request(@user_2)
+        get :show, {wish_id: @wish.id, id: @obstacle.id}
+      end
+
+      it { should respond_with 401 }
+
+    end
   end
 
   describe "Get #index" do
@@ -48,10 +62,9 @@ RSpec.describe Api::ObstaclesController, type: :controller do
         get :index, wish_id: @wish.id
       end
 
-      it "returns 0 records from the database" do
-        expect(json_response.length).to eq 0
-      end
-    end  
+      it { should respond_with 401 }
+
+    end
   end
 
 end
