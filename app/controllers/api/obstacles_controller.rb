@@ -7,6 +7,11 @@ class Api::ObstaclesController < ApplicationController
     render json: Obstacle.find(params[:id])
   end
 
+  def index
+    wish = Wish.find(params[:wish_id])
+    render json: wish.obstacles 
+  end
+
   private
 
   def obstacle_params
