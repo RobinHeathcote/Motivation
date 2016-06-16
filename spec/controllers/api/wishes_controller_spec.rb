@@ -16,7 +16,9 @@ RSpec.describe Api::WishesController, type: :controller do
       end
 
       it {should respond_with 200}
+
     end
+
   end
 
   describe "GET #index" do
@@ -37,6 +39,19 @@ RSpec.describe Api::WishesController, type: :controller do
       it {should respond_with 200}
     end
 
+    context "user could not see wishes others created" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        @user_2 = FactoryGirl.create :user
+        4.times {FactoryGirl.create :wish, user: @user}
+        auth_request(@user_2)
+        get :index
+      end
+
+      it "returns 0 records from the database" do
+        expect(json_response.length).to eq 0
+      end
+    end
   end
 
   describe "POST #create" do
@@ -95,10 +110,6 @@ RSpec.describe Api::WishesController, type: :controller do
 
       it { should respond_with 200 }
     end
-
-    # context "when update is unsuccessful" do
-
-    # end
   end
 
   describe "DELETE #destroy" do
