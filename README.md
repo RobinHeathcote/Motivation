@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/RobinHeathcote/Motivation.svg?branch=master)](https://travis-ci.org/RobinHeathcote/Motivation)
+[![Coverage Status](https://coveralls.io/repos/github/letianw91/motivation-angular/badge.svg?branch=master)](https://coveralls.io/github/letianw91/motivation-angular?branch=master)
 #Motivation App
 
 
