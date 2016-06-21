@@ -43,8 +43,6 @@ module Motivation
 
     config.autoload_paths += %w(\#{config.root}/lib)
 
-    
-      end
-    end
+
   end
 end
