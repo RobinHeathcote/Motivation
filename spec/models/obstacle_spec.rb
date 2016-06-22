@@ -12,4 +12,5 @@ describe Obstacle do
   it { should validate_presence_of(:obstacle_text) }
   it { should validate_presence_of(:plan_text) }
   it { should belong_to(:wish) }
+  it { should have_many(:streaks)}
 end

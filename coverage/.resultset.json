@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/controllers/api/obstacles_controller.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/controllers/api/obstacles_controller.rb": [
         1,
         1,
         1,
@@ -58,7 +58,7 @@
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/controllers/application_controller.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -66,7 +66,7 @@
         1,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/controllers/api/streaks_controller_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/controllers/api/streaks_controller_spec.rb": [
         1,
         null,
         1,
@@ -105,10 +105,46 @@
         null,
         null,
         null,
+        null,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        2,
+        null,
+        null,
+        null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/controllers/api/streaks_controller.rb": [
-        1,
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/controllers/api/streaks_controller.rb": [
         1,
         1,
         1,
@@ -120,36 +156,33 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
+        4,
+        4,
+        4,
         3,
         null,
-        null,
         1,
-        0,
         null,
-        null,
-        1,
-        3,
         null,
         null,
         1,
-        3,
-        3,
+        null,
+        1,
+        4,
+        null,
+        null,
+        1,
+        7,
+        null,
+        null,
+        1,
+        7,
+        7,
         null,
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/controllers/api/wishes_controller_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/controllers/api/wishes_controller_spec.rb": [
         1,
         null,
         1,
@@ -275,7 +308,7 @@
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/controllers/api/wishes_controller.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/controllers/api/wishes_controller.rb": [
         1,
         1,
         null,
@@ -320,15 +353,16 @@
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/models/obstacle_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/models/obstacle_spec.rb": [
         1,
         null,
         1,
         null,
-        7,
+        8,
         null,
-        7,
+        8,
         null,
+        2,
         2,
         2,
         2,
@@ -337,7 +371,7 @@
         2,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/models/obstacle.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/models/obstacle.rb": [
         1,
         null,
         1,
@@ -346,17 +380,17 @@
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/models/streak_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/models/streak_spec.rb": [
         1,
         null,
         1,
         null,
         2,
-        null,
+        2,
         null,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/models/streak.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/models/streak.rb": [
         1,
         null,
         1,
@@ -364,7 +398,7 @@
         1,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/models/user_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -383,7 +417,7 @@
         2,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/models/wish_spec.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/spec/models/wish_spec.rb": [
         1,
         null,
         1,
@@ -396,7 +430,7 @@
         2,
         null
       ],
-      "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/models/wish.rb": [
+      "/home/letianw/Projects/makersacademy/final/Motivation/app/models/wish.rb": [
         1,
         null,
         1,
@@ -406,6 +440,6 @@
         null
       ]
     },
-    "timestamp": 1466597818
+    "timestamp": 1466604045
   }
 }
