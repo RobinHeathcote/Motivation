@@ -146,6 +146,7 @@
         3,
         3,
         null,
+        null,
         null
       ],
       "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/spec/controllers/api/wishes_controller_spec.rb": [
@@ -352,10 +353,14 @@
         null,
         2,
         null,
+        null,
         null
       ],
       "/Users/troiani/Developer/MariaRonin/weekProject/Motivation/app/models/streak.rb": [
         1,
+        null,
+        1,
+        null,
         1,
         null
       ],
@@ -401,6 +406,6 @@
         null
       ]
     },
-    "timestamp": 1466596153
+    "timestamp": 1466597818
   }
 }

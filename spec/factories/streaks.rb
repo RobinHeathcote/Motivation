@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :streak do
-    completed false
+    completed true
     obstacle nil
   end
 end
