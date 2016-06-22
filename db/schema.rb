@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616095901) do
+ActiveRecord::Schema.define(version: 20160622094739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20160616095901) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "streaks", force: :cascade do |t|
+    t.boolean  "completed"
+    t.integer  "obstacle_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "streaks", ["obstacle_id"], name: "index_streaks_on_obstacle_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -36,10 +45,6 @@ ActiveRecord::Schema.define(version: 20160616095901) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.string   "name"
     t.string   "nickname"
     t.string   "image"
@@ -63,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160616095901) do
 
   add_index "wishes", ["user_id"], name: "index_wishes_on_user_id", using: :btree
 
+  add_foreign_key "streaks", "obstacles"
 end
