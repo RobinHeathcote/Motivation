@@ -30,7 +30,6 @@ RSpec.describe Api::WishesController, type: :controller do
         get :index
       end
 
-
       it "returns 4 records from the database" do
         expect(json_response.length).to eq 4
       end
@@ -121,6 +120,5 @@ RSpec.describe Api::WishesController, type: :controller do
 
     it { should respond_with 204 }
   end
-
 
 end
