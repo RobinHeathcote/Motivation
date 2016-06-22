@@ -4,6 +4,7 @@ class Api::StreaksController < ApplicationController
   respond_to :json
 
   def index
+    obstacle = Obstacle.find(params[:obstacle_id])
     render json: obstacle.streaks
   end
 
