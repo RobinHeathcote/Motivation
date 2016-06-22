@@ -32,10 +32,8 @@ RSpec.describe Api::StreaksController, type: :controller do
         get :index, wish_id: @wish.id, obstacle_id: @obstacle.id
       end
 
-      it "returns 0 records from the database" do
-        expect(json_response.length).to eq 0
-      end
-
+      it { should respond_with 401 }
     end
+    
   end
 end
