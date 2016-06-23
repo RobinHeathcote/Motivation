@@ -58,19 +58,6 @@ RSpec.describe Api::StreaksController, type: :controller do
 
       it {should respond_with 201}
     end
-
-    context 'when streak is invalid' do
-      before(:each) do
-        @user = FactoryGirl.create :user
-        @wish = FactoryGirl.create :wish, user: @user
-        @obstacle = FactoryGirl.create :obstacle, wish: @wish
-        @invalid_streak_attributes = { completed: nil }
-        auth_request(@user)
-        post :create, {wish_id: @wish.id, obstacle_id: @obstacle.id, streak: @invalid_streak_attributes}
-      end
-
-      it {should respond_with 422}
-    end
   end
 
 end
