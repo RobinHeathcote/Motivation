@@ -54,6 +54,12 @@
 ![mockups](https://www.dropbox.com/s/7ivzndl8ppkkk0n/Motivation.png?raw=1)
 
 ##Technology
++ Ruby on Rails
++ Rspec
++ PostgresSQL
++ Active Record
 
 ###User authentication
 devise_token_auth: https://github.com/lynndylanhurley/devise_token_auth#usage-tldr
+
+###Front-end Api to this project [HERE](https://github.com/letianw91/motivation-angular)
