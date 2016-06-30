@@ -5,6 +5,14 @@
 
 Motivation is an app built in two weeks with a remote team of members from Australia, Vietnam and the UK.  Its aim is to help users reach their goals without requiring any effort through gentle nudges and reminders when they need them. Users will input their goals (known as wishes), state a desired outcome, and the create obstacles and plans to help them achieve their wish. This follows the WOOP psychological method.
 
+##Technology
++ Ruby on Rails
++ Rspec
++ PostgresSQL
++ Active Record
+###User authentication
+devise_token_auth: https://github.com/lynndylanhurley/devise_token_auth#usage-tldr
+
 ## Early Stages
 
 During the design phase the team highlighted the need for a platform agnostic app as at some point a mobile app would need to be built. Our decision was to build a Rails API that could handle JSON and connect to a front end be it mobile, web app or native app. This was a new approach to the team, as was the decision to use a token authentication system to handle user log-in. Through co-ordinated research this was successfully achieved. 
@@ -40,18 +48,17 @@ $ rspec
 
 ##User stories
     
-    ```
+    ````
     As a user,
     so I can get motivation,
     I want to be able to add a goal(basic)
-    ```
-    
-    ```
+    ````
+    ````
     As a user,
     so I can track obstacles to achieving my goal,
     I want to be able to add obstacles to my goal(basic)
-    ```
-    
+    ````
+
     ```
     As a user,
     so I can overcome obstacles,
@@ -114,13 +121,5 @@ $ rspec
 
 ##Mockups
 ![mockups](https://www.dropbox.com/s/7ivzndl8ppkkk0n/Motivation.png?raw=1)
-
-##Technology
-+ Ruby on Rails
-+ Rspec
-+ PostgresSQL
-+ Active Record
-###User authentication
-devise_token_auth: https://github.com/lynndylanhurley/devise_token_auth#usage-tldr
 
 
