@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/RobinHeathcote/Motivation.svg?branch=master)](https://travis-ci.org/RobinHeathcote/Motivation)
 [![Coverage Status](https://coveralls.io/repos/github/RobinHeathcote/Motivation/badge.svg?branch=master)](https://coveralls.io/github/RobinHeathcote/Motivation?branch=master)
 
-#Motivation App
+#Motivation App Back-end API
 
-Motivation is an app built in two weeks with a remote team of members from Australia, Vietnam and the UK.  Its aim is to help users reach their goals without requiring any effort through gentle nudges and reminders when they need them. Users will input their goals (known as wishes), state a desired outcome, and the create obstacles and plans to help them achieve their wish. This follows the WOOP psychological method.
+Motivation is an app built in one week with a remote team of members from Australia, Vietnam and the UK.  Its aim is to help users reach their goals without requiring any effort through gentle nudges and reminders when they need them. Users will input their goals (known as wishes), state a desired outcome, and the create obstacles and plans to help them achieve their wish. This follows the WOOP psychological method.
 
 ##Technology
 + Ruby on Rails
