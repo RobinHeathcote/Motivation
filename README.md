@@ -4,17 +4,13 @@
 
 
 ##User stories
-    ```ruby
-      As a user,
+    
+    1.As a user,
       so I can get motivation,
       I want to be able to add a goal(basic)
-     ```
-     ```
-      As a user,
+    2.As a user,
       so I can track obstacles to achieving my goal,
       I want to be able to add obstacles to my goal(basic)
-    ```
-    ```
     3.As a user,
       so I can overcome obstacles,
       I want to be able to add plans to overcome obstacles(basic)
