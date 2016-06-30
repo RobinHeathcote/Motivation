@@ -4,7 +4,7 @@
 
 
 ##User stories
-    ```
+    ```ruby
       As a user,
       so I can get motivation,
       I want to be able to add a goal(basic)
