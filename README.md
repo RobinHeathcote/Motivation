@@ -47,7 +47,6 @@ $ rspec
 ````
 
 ##User stories
-    
     ````
     As a user,
     so I can get motivation,
@@ -58,7 +57,6 @@ $ rspec
     so I can track obstacles to achieving my goal,
     I want to be able to add obstacles to my goal(basic)
     ````
-
     ```
     As a user,
     so I can overcome obstacles,
