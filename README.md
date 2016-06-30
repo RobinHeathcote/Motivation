@@ -5,10 +5,11 @@
 
 ##User stories
     
-    1.As a user,
+      As a user,
       so I can get motivation,
       I want to be able to add a goal(basic)
-    2.As a user,
+     
+      As a user,
       so I can track obstacles to achieving my goal,
       I want to be able to add obstacles to my goal(basic)
     3.As a user,
