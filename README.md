@@ -2,6 +2,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/RobinHeathcote/Motivation/badge.svg?branch=master)](https://coveralls.io/github/RobinHeathcote/Motivation?branch=master)
 #Motivation App
 
+##Project team:
+* [Robin Heathcote](https://github.com/RobinHeathcote)
+* [Letian Wang](https://github.com/letianw91)
+* [Maria Romero](https://github.com/MariaRomero)
+* [Lexi Tran](https://github.com/lexiht)
 
 ##User stories
     
