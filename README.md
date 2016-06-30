@@ -9,10 +9,9 @@ Motivation is an app built in two weeks with a remote team of members from Austr
 
 During the design phase the team highlighted the need for a platform agnostic app as at some point a mobile app would need to be built. Our decision was to build a Rails API that could handle JSON and connect to a front end be it mobile, web app or native app. This was a new approach to the team, as was the decision to use a token authentication system to handle user log-in. Through co-ordinated research this was successfully achieved. 
 
-Our MVP included a fully tested and functional API and a functional [Web App](https://github.com/letianw91/motivation-angular)
+Our MVP included a fully tested and functional API and a functional Front-end [Web App](https://github.com/letianw91/motivation-angular)
 
-To implement the app, the team use a Agile workflow and utilised XP practices to create clean code that is test driven.
-
+To implement this project, the team use a Agile workflow and utilised XP practices to create clean code that is test driven.
 
 ##Project team:
 * [Robin Heathcote](https://github.com/RobinHeathcote)
